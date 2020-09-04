@@ -12,6 +12,7 @@ os.environ['STAGING_SERVER'] = 'superlists-staging.xyz'
 class FunctionTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
+        os.environ['STAGING_SERVER'] = '127.0.0.1:8000'
         staging_server = os.environ.get('STAGING_SERVER')
         if staging_server:
             self.live_server_url = 'http://' + staging_server
